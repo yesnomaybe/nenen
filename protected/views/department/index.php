@@ -18,3 +18,20 @@ $this->menu=array(
 	'dataProvider'=>$dataProvider,
 	'itemView'=>'_view',
 )); ?>
+
+<?php $this->widget('zii.widgets.grid.CGridView', array(
+    'id'=>'department-grid',
+    'dataProvider'=>$dataProvider,
+    'filter'=>$model,
+    'columns'=>array(
+        'id',
+        'name',
+        array(
+            'header'=>'Employees',
+            'value'=>'count($data->employees)',
+        ),
+        array(
+            'class'=>'CButtonColumn',
+        ),
+    ),
+)); ?>

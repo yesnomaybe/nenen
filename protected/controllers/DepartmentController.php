@@ -123,9 +123,12 @@ class DepartmentController extends Controller
 	public function actionIndex()
 	{
 		$dataProvider=new CActiveDataProvider('Department');
-		$this->render('index',array(
+        $model=Department::model();
+        $this->render('index',array(
 			'dataProvider'=>$dataProvider,
+            'model'=>$model,
 		));
+
 	}
 
 	/**
