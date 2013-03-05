@@ -6,7 +6,7 @@
 
 <?php
 
-    echo Chtml::link(CHtml::encode($data->firstName." ".CHtml::encode($data->lastName), array('view', 'id'=>$data->id)));
+    echo Chtml::link(CHtml::encode($data->firstName." ".CHtml::encode($data->lastName)), array('view', 'id'=>$data->id));
 ?>
 
 <a href="<?php echo "employee/".Chtml::encode($data->id) ?>">
