@@ -7,11 +7,13 @@
 <?php
 
     echo Chtml::link(CHtml::encode($data->firstName." ".CHtml::encode($data->lastName)), array('view', 'id'=>$data->id));
+
 ?>
 
-<a href="<?php echo "employee/".Chtml::encode($data->id) ?>">
 
-<div class="view">
+
+
+<div class="view" onclick="location.href='<?php echo Chtml::encode($data->id) ?>';" style="cursor: pointer;" onmouseover="this.style.background='#eeeeee';" onmouseout="this.style.background='white';">
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
 	<?php echo CHtml::encode($data->id); ?>
@@ -48,4 +50,3 @@
 
 </div>
 
-</a>
