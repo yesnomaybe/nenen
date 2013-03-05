@@ -3,14 +3,20 @@
 /* @var $data Employee */
 ?>
 
+
+<?php
+
+    echo Chtml::link(CHtml::encode($data->firstName." ".CHtml::encode($data->lastName), array('view', 'id'=>$data->id)));
+?>
+
 <div class="view">
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->id), array('view', 'id'=>$data->id)); ?>
+	<?php echo CHtml::encode($data->id); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('departmentId')); ?>:</b>
-	<?php echo CHtml::encode($data->departmentId); ?>
+	<?php echo CHtml::encode($data->department->name); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('firstName')); ?>:</b>
@@ -33,11 +39,9 @@
 	<?php echo CHtml::encode($data->hireDate); ?>
 	<br />
 
-	<?php /*
 	<b><?php echo CHtml::encode($data->getAttributeLabel('leaveDate')); ?>:</b>
 	<?php echo CHtml::encode($data->leaveDate); ?>
 	<br />
 
-	*/ ?>
 
 </div>
