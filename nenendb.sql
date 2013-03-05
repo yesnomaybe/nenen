@@ -1,45 +1,45 @@
--- phpMyAdmin SQL Dump
--- version 3.5.1
--- http://www.phpmyadmin.net
---
--- Host: localhost
--- Generation Time: Mar 04, 2013 at 11:18 PM
--- Server version: 5.5.24-log
--- PHP Version: 5.3.13
+/*
+ Navicat Premium Data Transfer
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
+ Source Server         : localhost
+ Source Server Type    : MySQL
+ Source Server Version : 50166
+ Source Host           : localhost
+ Source Database       : nenendb
 
+ Target Server Type    : MySQL
+ Target Server Version : 50166
+ File Encoding         : utf-8
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+ Date: 03/05/2013 17:43:13 PM
+*/
 
---
--- Database: `nenendb`
---
+SET NAMES utf8;
+SET FOREIGN_KEY_CHECKS = 0;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `department`
---
-
-CREATE TABLE IF NOT EXISTS `department` (
+-- ----------------------------
+--  Table structure for `department`
+-- ----------------------------
+DROP TABLE IF EXISTS `department`;
+CREATE TABLE `department` (
   `id` tinyint(3) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(40) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
+-- ----------------------------
+--  Records of `department`
+-- ----------------------------
+BEGIN;
+INSERT INTO `department` VALUES ('2', 'Finance'), ('1', 'Sales'), ('3', 'Support');
+COMMIT;
 
---
--- Table structure for table `employee`
---
-
-CREATE TABLE IF NOT EXISTS `employee` (
+-- ----------------------------
+--  Table structure for `employee`
+-- ----------------------------
+DROP TABLE IF EXISTS `employee`;
+CREATE TABLE `employee` (
   `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
   `departmentId` tinyint(3) unsigned NOT NULL COMMENT 'CONSTRAINT FOREIGN KEY (departmentId) REFERENCES Department(id)',
   `firstName` varchar(20) NOT NULL,
@@ -51,15 +51,13 @@ CREATE TABLE IF NOT EXISTS `employee` (
   PRIMARY KEY (`id`),
   KEY `name` (`lastName`,`firstName`),
   KEY `departmentId` (`departmentId`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `employee`
---
+-- ----------------------------
+--  Records of `employee`
+-- ----------------------------
+BEGIN;
+INSERT INTO `employee` VALUES ('1', '1', 'Mert', 'Coşkun', 'mert@wiggledigital.com', null, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+COMMIT;
 
-INSERT INTO `employee` (`id`, `departmentId`, `firstName`, `lastName`, `email`, `ext`, `hireDate`, `leaveDate`) VALUES
-(1, 1, 'Mert', 'Coşkun', 'mert@wiggledigital.com', NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+SET FOREIGN_KEY_CHECKS = 1;
