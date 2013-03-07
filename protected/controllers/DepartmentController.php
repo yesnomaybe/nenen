@@ -122,7 +122,6 @@ class DepartmentController extends Controller
 	 */
 
 
-    // CGridView - columns - CDataColumn - sortable - name?
 	public function actionIndex()
 	{
 		$dataProvider=new CActiveDataProvider('Department',
