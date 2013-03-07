@@ -26,10 +26,7 @@ $this->menu=array(
     'columns'=>array(
         'id',
         'name',
-        array(
-            'header'=>'Employees',
-            'value'=>'count($data->employees)',
-        ),
+        'employeeCount',
         array(
             'class'=>'CButtonColumn',
         ),

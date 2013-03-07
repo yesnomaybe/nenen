@@ -120,9 +120,28 @@ class DepartmentController extends Controller
 	/**
 	 * Lists all models.
 	 */
+
+
+    // CGridView - columns - CDataColumn - sortable - name?
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Department');
+		$dataProvider=new CActiveDataProvider('Department',
+            array(
+                'criteria' => array(
+                    'select' => "id,name,(select count(*) from employee where departmentId=t.id) as employeeCount",
+                    'group' => 't.id'
+                ),
+                'sort' => array(
+                    'attributes' => array(
+                        'employeeCount' => array(
+                            'asc' => 'employeeCount ASC',
+                            'desc' => 'employeeCount DESC'
+                        ),
+                        '*'
+                    )
+                )
+            )
+        );
         $model=Department::model();
         $this->render('index',array(
 			'dataProvider'=>$dataProvider,
