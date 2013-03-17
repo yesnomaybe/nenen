@@ -16,9 +16,23 @@
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'departmentId'); ?>
-		<?php echo $form->textField($model,'departmentId'); ?>
-		<?php echo $form->error($model,'departmentId'); ?>
+
+
+    <?php
+
+        $models = department::model()->findAll();
+
+
+        $list = CHtml::listData($models, 'id', 'name');
+
+
+        echo $form->labelEx($model,'departmentId');
+        echo $form->dropDownList($model, 'departmentId', $list, array('empty'=>'Departman Seçin..'));
+
+        ?>
+
+
+
 	</div>
 
 	<div class="row">
