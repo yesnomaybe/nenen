@@ -13,5 +13,12 @@
 	<?php echo CHtml::encode($data->name); ?>
 	<br />
 
+    <b>Çalışan Sayısı: </b>
+    <?php echo count($data->employees) ?>
+
+
+
+
+
 
 </div>
