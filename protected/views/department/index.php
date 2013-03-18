@@ -12,7 +12,7 @@ $this->menu=array(
 );
 ?>
 
-<h1>Departments</h1>
+<h1>Departments (Total: <?php echo department::model()->count(); ?>)</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,
